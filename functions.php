@@ -50,7 +50,8 @@ if ( ! function_exists( 'learn_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'learn' ),
+				'menu-header' => esc_html__( 'header', 'learn' ),
+				'menu-footer' => esc_html__( 'footer', 'learn' ),
 			)
 		);
 
@@ -151,6 +152,38 @@ function learn_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'learn_scripts' );
 
+
+/**
+ * Enqueue scripts and styles.
+ */
+function load_frondend() {
+	// css
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.css', array(), _S_VERSION );
+	wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/style.css', array(), _S_VERSION );
+	wp_enqueue_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper.css', array(), _S_VERSION );
+	wp_enqueue_style( 'dark', get_template_directory_uri() . '/assets/css/dark.css', array(), _S_VERSION );
+	wp_enqueue_style( 'font-icons', get_template_directory_uri() . '/assets/css/font-icons.css', array(), _S_VERSION );
+	wp_enqueue_style( 'animate', get_template_directory_uri() . '/assets/css/animate.css', array(), _S_VERSION );
+	wp_enqueue_style( 'animate', get_template_directory_uri() . '/assets/css/responsive.css', array(), _S_VERSION );
+
+	//js
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'carousel', get_template_directory_uri() . '/assets/js/owl.carousel.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'superfish', get_template_directory_uri() . '/assets/js/superfish.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'jRespond', get_template_directory_uri() . '/assets/js/jRespond.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'cookie', get_template_directory_uri() . '/assets/js/js.cookie.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'jquery-plugin', get_template_directory_uri() . '/assets/js/jquery.plugin.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'countTo', get_template_directory_uri() . '/assets/js/jquery.countTo.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'animsition', get_template_directory_uri() . '/assets/js/animsition.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'jquery-ui', get_template_directory_uri() . '/assets/js/jquery-ui.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array(), _S_VERSION, true );
+
+}
+add_action( 'wp_enqueue_scripts', 'load_frondend' );
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -171,10 +204,8 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
+/**
+ * Header logo
+ */
+require get_template_directory() . '/inc/site-header.php';

@@ -11,24 +11,53 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'learn' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'learn' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'learn' ), 'learn', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
-
 <?php wp_footer(); ?>
+
+<!-- Footer
+============================================= -->
+<footer id="footer" class="dark">
+
+	<!-- Copyrights
+	============================================= -->
+	<div id="copyrights">
+
+		<div class="container clearfix">
+
+			<div class="col_half">
+				Copyrights &copy; 2020<br>
+				<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+			</div>
+
+			<div class="col_half col_last tright">
+				<div class="fright clearfix">
+					<a href="#" class="social-icon si-small si-borderless si-facebook">
+						<i class="icon-facebook"></i>
+						<i class="icon-facebook"></i>
+					</a>
+
+					<a href="#" class="social-icon si-small si-borderless si-twitter">
+						<i class="icon-twitter"></i>
+						<i class="icon-twitter"></i>
+					</a>
+
+					<a href="#" class="social-icon si-small si-borderless si-gplus">
+						<i class="icon-gplus"></i>
+						<i class="icon-gplus"></i>
+					</a>
+				</div>
+
+				<div class="clear"></div>
+
+				<i class="icon-envelope2"></i> info@site.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +7(999) 99-99-999
+			</div>
+
+		</div>
+
+	</div><!-- #copyrights end -->
+
+</footer><!-- #footer end -->
+
+</div><!-- #wrapper end -->
 
 </body>
 </html>
