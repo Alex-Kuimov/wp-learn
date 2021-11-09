@@ -52,6 +52,80 @@ function learn_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
 
+
+function custom_customizer_addition( $wp_customize ) {
+
+	$wp_customize->add_panel(
+		'custom_settings',
+		array(
+			'priority'       => 2,
+			'capability'     => 'edit_theme_options',
+			'description'    => __( 'Settings', 'learn' ),
+			'theme_supports' => '',
+			'title'          => __( 'Settings', 'learn' ),
+		)
+	);
+
+	//header section
+	$wp_customize->add_section(
+		'header_section',
+		array(
+			'title'    => __( 'Header', 'learn' ),
+			'priority' => 1,
+			'panel'    => 'custom_settings',
+		)
+	);
+
+	//logo01
+	$wp_customize->add_setting(
+		'logo01',
+		array(
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'esc_url_raw',
+			'default'    => '',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'logo01',
+			array(
+				'label'    => __('logo01', 'learn'),
+				'section'  => 'header_section',
+				'settings' => 'logo01',
+			)
+		)
+	);
+
+	//logo02
+	$wp_customize->add_setting(
+		'logo02',
+		array(
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'esc_url_raw',
+			'default'    => '',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'logo02',
+			array(
+				'label'    => __('logo02', 'learn'),
+				'section'  => 'header_section',
+				'settings' => 'logo02',
+			)
+		)
+	);
+
+	//тут твой код
+}
+
+add_action( 'customize_register', 'custom_customizer_addition' );
+
+
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
