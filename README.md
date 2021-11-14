@@ -22,4 +22,4 @@ https://github.com/Spoot1986/sp-theme-html
 
 Задание 2
 1. Заночить блоки ACF на главной
-2. 2. ООП
+2. ООП
