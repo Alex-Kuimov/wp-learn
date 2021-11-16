@@ -24,31 +24,17 @@
 		<div class="container clearfix">
 
 			<div class="col_half">
-				Copyrights &copy; 2020<br>
-				<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+				<?php echo wp_kses_post( site\footer\copyright() ); ?> &copy; <?php echo esc_html( date('Y') )?><br>
+				<?php echo wp_kses_post( site\footer\get_menu() ); ?>
 			</div>
 
 			<div class="col_half col_last tright">
-				<div class="fright clearfix">
-					<a href="#" class="social-icon si-small si-borderless si-facebook">
-						<i class="icon-facebook"></i>
-						<i class="icon-facebook"></i>
-					</a>
-
-					<a href="#" class="social-icon si-small si-borderless si-twitter">
-						<i class="icon-twitter"></i>
-						<i class="icon-twitter"></i>
-					</a>
-
-					<a href="#" class="social-icon si-small si-borderless si-gplus">
-						<i class="icon-gplus"></i>
-						<i class="icon-gplus"></i>
-					</a>
-				</div>
+                
+                <?php echo wp_kses_post( site\footer\social_links() );?>
 
 				<div class="clear"></div>
-
-				<i class="icon-envelope2"></i> info@site.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +7(999) 99-99-999
+				
+				<?php echo wp_kses_post( site\footer\footer_contacts() );?>
 			</div>
 
 		</div>

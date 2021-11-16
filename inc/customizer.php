@@ -75,6 +75,15 @@ function custom_customizer_addition( $wp_customize ) {
 			'panel'    => 'custom_settings',
 		)
 	);
+	//footer section
+	$wp_customize->add_section(
+		'footer_section',
+		array(
+			'title'    => __( 'Footer', 'learn' ),
+			'priority' => 2,
+			'panel'    => 'custom_settings',
+		)
+	);
 
 	//logo01
 	$wp_customize->add_setting(
@@ -121,6 +130,71 @@ function custom_customizer_addition( $wp_customize ) {
 	);
 
 	//тут твой код
+	/**
+	 * copyright
+	 */
+	$setting = 'copyright';
+	$wp_customize->add_setting( $setting, [
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'    => ''
+		]
+	);
+	$wp_customize->add_control( $setting, [
+		'section'  => 'footer_section',
+		'label'    => __("Copyright text", 'learn'),
+		'type'     => 'text'
+	] );
+	
+	/**
+	 * Social links
+	 */
+	$ar_setting = array('facebook', 'twitter', 'google');
+	foreach ($ar_setting as $setting){
+		$wp_customize->add_setting( $setting, [
+				'capability' => 'edit_theme_options',
+				'sanitize_callback' => 'esc_url_raw',
+				'default'    => '',
+			]
+		);
+		$wp_customize->add_control( $setting, [
+			'section'  => 'footer_section',
+			'label'    => __("$setting url:", 'learn'),
+			'type'     => 'text',
+		] );
+	}
+	
+	/**
+	 * footer email
+	 */
+	$setting = 'footer_email';
+	$wp_customize->add_setting( $setting, [
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'    => '',
+		]
+	);
+	$wp_customize->add_control( $setting, [
+		'section'  => 'footer_section',
+		'label'    => __("Footer email", 'learn'),
+		'type'     => 'text',
+	] );
+	
+	/**
+	 * footer phone
+	 */
+	$setting = 'footer_phone';
+	$wp_customize->add_setting( $setting, [
+			'capability' => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'    => '',
+		]
+	);
+	$wp_customize->add_control( $setting, [
+		'section'  => 'footer_section',
+		'label'    => __("Footer phone", 'learn'),
+		'type'     => 'text',
+	] );
 }
 
 add_action( 'customize_register', 'custom_customizer_addition' );
