@@ -209,3 +209,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Header logo
  */
 require get_template_directory() . '/inc/site-header.php';
+
+/**
+ * Footer
+ */
+require get_template_directory() . '/inc/site-footer.php';
