@@ -34,13 +34,13 @@
 
 				<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-				<?php echo wp_kses_post( site\header\get_logo() ); ?>
+				<?php echo site\Header::instance()->get_logo(); ?>
 
 				<!-- Primary Navigation
 				============================================= -->
 				<nav id="primary-menu" class="dark">
 
-					<?php echo wp_kses_post( site\header\get_menu() ); ?>
+					<?php echo site\Header::instance()->get_menu(); ?>
 
 					<!-- Top Cart
 					============================================= -->
