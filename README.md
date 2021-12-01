@@ -31,5 +31,7 @@ https://github.com/Spoot1986/sp-theme-html
 
 
 Задание 3
-1. Сделать страницу списка постов, шаблон index.php
-2. Сделать детальные страницы, шаблоны page.php single.php
+1. Создать домашнюю странцу
+2. Подключить шаблон front-page.php
+3. Сделать секцию №2 в плагине ACF (https://wordpress.org/plugins/advanced-custom-fields/)
+4. Перенести из site-footer.php в класс, который ты сам создашь
