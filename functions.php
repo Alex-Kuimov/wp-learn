@@ -205,6 +205,12 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Post types
+ */
+
+require get_template_directory() . '/inc/post-type.php';
+
+/**
  * ACF Fields
  */
 
@@ -229,36 +235,36 @@ require get_template_directory() . '/inc/classes/class-header.php';
  * Class Footer
  */
 require get_template_directory() . '/inc/classes/class-footer.php';
-	
+
 /**
  * Class Front Page
  */
 require get_template_directory() . '/inc/classes/class-front-page.php';
-	
-	
+
+
 	/*
 	class Test01 {
-	
+
 		private string $var;
-	
+
 		public function set( string $var = '' ) {
 			if( $var ) {
 				$this->var = $var;
 			}
-	
+
 			$this->var = $var;
 		}
-	
+
 		public function get():string {
-	
+
 			if( ! empty( $this->var ) ) {
 				return $this->var;
 			}
-	
+
 			return '';
 		}
 	}
-	
+
 	$test = new Test01();
 	$test->set('test');
 	$test->get();

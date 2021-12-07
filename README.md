@@ -35,3 +35,10 @@ https://github.com/Spoot1986/sp-theme-html
 2. Подключить шаблон front-page.php
 3. Сделать секцию №2 в плагине ACF (https://wordpress.org/plugins/advanced-custom-fields/)
 4. Перенести из site-footer.php в класс, который ты сам создашь
+
+Пракатический урок 4
+1. Продолжаем делать блоки через custom post type на главной
+
+Задание 4
+1. Доделать custom post type на главной
+2. Сделать вывод новостей(post type 'post') на главной (Latest from the Blog)
