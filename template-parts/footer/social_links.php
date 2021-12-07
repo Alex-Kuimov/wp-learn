@@ -10,22 +10,22 @@
 ?>
 
 <div class="fright clearfix">
-	<?php if ( $fb ) : ?>
-		<a href="<?php echo esc_url( $fb ); ?>" class="social-icon si-small si-borderless si-facebook">
+	<?php if ( $args['facebook'] ) : ?>
+		<a href="<?php echo esc_url( $args['facebook'] ); ?>" class="social-icon si-small si-borderless si-facebook">
 			<i class="icon-facebook"></i>
 			<i class="icon-facebook"></i>
 		</a>
 	<?php endif; ?>
 
-	<?php if ( $tw ) : ?>
-		<a href="<?php echo esc_url( $tw ); ?>" class="social-icon si-small si-borderless si-twitter">
+	<?php if ( $args['twitter'] ) : ?>
+		<a href="<?php echo esc_url( $args['twitter'] ); ?>" class="social-icon si-small si-borderless si-twitter">
 			<i class="icon-twitter"></i>
 			<i class="icon-twitter"></i>
 		</a>
 	<?php endif; ?>
 
-	<?php if ( $gp ) : ?>
-		<a href="<?php echo esc_url( $gp ); ?>" class="social-icon si-small si-borderless si-gplus">
+	<?php if ( $args['google'] ) : ?>
+		<a href="<?php echo esc_url( $args['google'] ); ?>" class="social-icon si-small si-borderless si-gplus">
 			<i class="icon-gplus"></i>
 			<i class="icon-gplus"></i>
 		</a>

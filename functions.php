@@ -211,11 +211,6 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/acf-fields.php';
 
 /**
- * Footer
- */
-require get_template_directory() . '/inc/site-footer.php';
-
-/**
  * Class Singleton
  */
 require get_template_directory() . '/inc/classes/patterns/class-singleton.php';
@@ -231,34 +226,40 @@ require get_template_directory() . '/inc/classes/class-template.php';
 require get_template_directory() . '/inc/classes/class-header.php';
 
 /**
+ * Class Footer
+ */
+require get_template_directory() . '/inc/classes/class-footer.php';
+	
+/**
  * Class Front Page
  */
 require get_template_directory() . '/inc/classes/class-front-page.php';
-
-/*
-class Test01 {
-
-	private string $var;
-
-	public function set( string $var = '' ) {
-		if( $var ) {
+	
+	
+	/*
+	class Test01 {
+	
+		private string $var;
+	
+		public function set( string $var = '' ) {
+			if( $var ) {
+				$this->var = $var;
+			}
+	
 			$this->var = $var;
 		}
-
-		$this->var = $var;
-	}
-
-	public function get():string {
-
-		if( ! empty( $this->var ) ) {
-			return $this->var;
+	
+		public function get():string {
+	
+			if( ! empty( $this->var ) ) {
+				return $this->var;
+			}
+	
+			return '';
 		}
-
-		return '';
 	}
-}
-
-$test = new Test01();
-$test->set('test');
-$test->get();
-*/
+	
+	$test = new Test01();
+	$test->set('test');
+	$test->get();
+	*/
