@@ -106,7 +106,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ) :
 			'show_in_rest'          => 0,
 		)
 	);
-	
+
 	//section 2
 	acf_add_local_field_group(array(
 		'key' => 'group_61aea77ac623d',
@@ -415,6 +415,68 @@ if ( function_exists( 'acf_add_local_field_group' ) ) :
 		'description' => '',
 		'show_in_rest' => 0,
 	));
-	
-	
+
+	//possibilities
+	acf_add_local_field_group(array(
+		'key' => 'group_61afa907d86c5',
+		'title' => 'possibilities',
+		'fields' => array(
+			array(
+				'key' => 'field_61afa90edc4fd',
+				'label' => 'Иконка',
+				'name' => 'possibilities_icon',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_61afa93438d07',
+				'label' => 'Текст',
+				'name' => 'possibilities_text',
+				'type' => 'textarea',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'new_lines' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'possibilities',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	));
 endif;
