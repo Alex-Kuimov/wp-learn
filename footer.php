@@ -24,17 +24,18 @@
 		<div class="container clearfix">
 
 			<div class="col_half">
-				<?php echo wp_kses_post( site\footer\copyright() ); ?> &copy; <?php echo esc_html( date('Y') )?><br>
-				<?php echo wp_kses_post( site\footer\get_menu() ); ?>
+				
+				<?php echo site\Footer::instance()->copyright(); ?> &copy; <?php echo esc_html( date('Y') )?><br>
+				<?php echo site\Footer::instance()->get_menu(); ?>
 			</div>
 
 			<div class="col_half col_last tright">
-                
-                <?php echo wp_kses_post( site\footer\social_links() );?>
-
+				
+				<?php echo site\Footer::instance()->social_links(); ?>
+    
 				<div class="clear"></div>
 				
-				<?php echo wp_kses_post( site\footer\footer_contacts() );?>
+				<?php echo site\Footer::instance()->footer_contacts(); ?>
 			</div>
 
 		</div>

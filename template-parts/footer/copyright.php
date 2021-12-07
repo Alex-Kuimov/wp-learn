@@ -7,5 +7,5 @@
 	 */
 ?>
 
-<?php
-echo esc_html( $copyright );
+<?php echo esc_html( $args['copyright'] ); ?>
+

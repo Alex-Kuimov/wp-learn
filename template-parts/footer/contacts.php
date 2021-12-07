@@ -8,12 +8,12 @@
 	 */
 ?>
 
-<?php if ( $email ) : ?>
-	<i class="icon-envelope2"></i> <?php echo esc_html( $email ); ?>
+<?php if ( $args['email'] ) : ?>
+	<i class="icon-envelope2"></i> <?php echo esc_html( $args['email'] ); ?>
 <?php endif; ?>
 
 <span class="middot">&middot;</span>
 
-<?php if ( $phone ) : ?>
-	<i class="icon-headphones"></i> <?php echo esc_html( $phone ); ?>
+<?php if ( $args['phone'] ) : ?>
+	<i class="icon-headphones"></i> <?php echo esc_html( $args['phone'] ); ?>
 <?php endif; ?>

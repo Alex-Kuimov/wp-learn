@@ -8,16 +8,18 @@
 ?>
 
 <div class="copyright-links">
-	<?php if ( ! empty( $menu_list ) ) : ?>
-		<?php foreach ( $menu_list as $key => $item ) : ?>
+	
+	<?php if ( ! empty( $args ) ) : ?>
+		<?php foreach ( $args as $key => $item ) : ?>
 			<?php
 			if ( $key > 0 ) {
 				echo esc_html( '/' );
 			}
 			?>
-			<a href="<?php echo esc_url( $item['url'] ); ?>" class="<?php echo esc_attr( $item['class'] ); ?>">
-				<?php echo esc_html( $item['title'] ); ?>
-			</a>
+            <a href="<?php echo esc_url( $item['url'] ); ?>" class="<?php echo esc_attr( $item['class'] ); ?>">
+                <?php echo esc_html( $item['title'] ); ?>
+            </a>
 		<?php endforeach; ?>
 	<?php endif; ?>
+ 
 </div>
