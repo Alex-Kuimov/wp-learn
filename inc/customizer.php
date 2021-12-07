@@ -66,7 +66,7 @@ function custom_customizer_addition( $wp_customize ) {
 		)
 	);
 
-	//header section
+	// header section
 	$wp_customize->add_section(
 		'header_section',
 		array(
@@ -75,14 +75,23 @@ function custom_customizer_addition( $wp_customize ) {
 			'panel'    => 'custom_settings',
 		)
 	);
+	// footer section
+	$wp_customize->add_section(
+		'footer_section',
+		array(
+			'title'    => __( 'Footer', 'learn' ),
+			'priority' => 2,
+			'panel'    => 'custom_settings',
+		)
+	);
 
-	//logo01
+	// logo01
 	$wp_customize->add_setting(
 		'logo01',
 		array(
-			'capability' => 'edit_theme_options',
+			'capability'        => 'edit_theme_options',
 			'sanitize_callback' => 'esc_url_raw',
-			'default'    => '',
+			'default'           => '',
 		)
 	);
 
@@ -91,20 +100,20 @@ function custom_customizer_addition( $wp_customize ) {
 			$wp_customize,
 			'logo01',
 			array(
-				'label'    => __('logo01', 'learn'),
+				'label'    => __( 'logo01', 'learn' ),
 				'section'  => 'header_section',
 				'settings' => 'logo01',
 			)
 		)
 	);
 
-	//logo02
+	// logo02
 	$wp_customize->add_setting(
 		'logo02',
 		array(
-			'capability' => 'edit_theme_options',
+			'capability'        => 'edit_theme_options',
 			'sanitize_callback' => 'esc_url_raw',
-			'default'    => '',
+			'default'           => '',
 		)
 	);
 
@@ -113,14 +122,98 @@ function custom_customizer_addition( $wp_customize ) {
 			$wp_customize,
 			'logo02',
 			array(
-				'label'    => __('logo02', 'learn'),
+				'label'    => __( 'logo02', 'learn' ),
 				'section'  => 'header_section',
 				'settings' => 'logo02',
 			)
 		)
 	);
 
-	//тут твой код
+	/**
+	 * Copyright
+	 */
+	$setting = 'copyright';
+	$wp_customize->add_setting(
+		$setting,
+		array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		)
+	);
+	$wp_customize->add_control(
+		$setting,
+		array(
+			'section'  => 'footer_section',
+			'label'    => __( 'Copyright text', 'learn' ),
+			'type'     => 'text',
+		)
+	);
+
+	/**
+	 * Social links
+	 */
+	$ar_setting = array( 'facebook', 'twitter', 'google' );
+	foreach ( $ar_setting as $setting ) {
+		$wp_customize->add_setting(
+			$setting,
+			array(
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'esc_url_raw',
+				'default'           => '',
+			)
+		);
+		$wp_customize->add_control(
+			$setting,
+			array(
+				'section'  => 'footer_section',
+				'label'    => __( "$setting url:", 'learn' ),
+				'type'     => 'text',
+			)
+		);
+	}
+
+	/**
+	 * Footer email
+	 */
+	$setting = 'footer_email';
+	$wp_customize->add_setting(
+		$setting,
+		array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		)
+	);
+	$wp_customize->add_control(
+		$setting,
+		array(
+			'section'  => 'footer_section',
+			'label'    => __( 'Footer email', 'learn' ),
+			'type'     => 'text',
+		)
+	);
+
+	/**
+	 * Footer phone
+	 */
+	$setting = 'footer_phone';
+	$wp_customize->add_setting(
+		$setting,
+		array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		)
+	);
+	$wp_customize->add_control(
+		$setting,
+		array(
+			'section'  => 'footer_section',
+			'label'    => __( 'Footer phone', 'learn' ),
+			'type'     => 'text',
+		)
+	);
 }
 
 add_action( 'customize_register', 'custom_customizer_addition' );
