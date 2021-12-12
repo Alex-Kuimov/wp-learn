@@ -78,6 +78,37 @@ class Front_Page extends Template {
 		return $this->render( $template, $args );
 	}
 
-
+	public function get_section_our_works(){
+		$template = '/template-parts/front-page/our_works.php';
+		
+		$args = array();
+		
+		$post_type_args = array(
+			'post_type'      => 'ourworks',
+			'post_status'    => 'publish',
+			'posts_per_page' => 8,
+			'order'=> 'ASC',
+		);
+		
+		$posts = get_posts( $post_type_args );
+		
+		if ( $posts ) {
+			foreach ( $posts as $post ) {
+				$post_id = $post->ID;
+				$post_link = get_post_permalink($post_id);
+				
+				$item = array (
+					'post_link' => $post_link,
+					'title' => get_the_title( $post_id ),
+					'image'  => get_field( 'image', $post_id ) ?? false,
+					'link'  => get_field( 'link', $post_id ) ?? false,
+				);
+				
+				array_push( $args, $item );
+			}
+		}
+		
+		return $this->render( $template, $args );
+	}
 
 }
