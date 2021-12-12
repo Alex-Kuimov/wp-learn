@@ -57,6 +57,7 @@ class Front_Page extends Template {
 		$posts = get_posts( $post_type_args );
 
 		if ( $posts ) {
+			$i = 0;
 			foreach ( $posts as $post ) {
 				$post_id = $post->ID;
 
@@ -64,9 +65,13 @@ class Front_Page extends Template {
 					'title' => get_the_title( $post_id ),
 					'icon'  => get_field( 'possibilities_icon', $post_id ) ?? false,
 					'text'  => get_field( 'possibilities_text', $post_id ) ?? false,
+					'row_end' => ($i==2)?'col_last':false,
+					'clear' => ($i==2)?true:false
 				);
 
 				array_push( $args, $item );
+				$i++;
+				if ($i==3) $i = 0;
 			}
 		}
 

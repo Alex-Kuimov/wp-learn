@@ -10,7 +10,7 @@
 
 <div class="container clearfix">
 	<?php foreach ( $args as $item ): ?>
-        <div class="col_one_third">
+        <div class="col_one_third <?php echo esc_attr( $item['row_end'] ); ?>">
             <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn">
 
 		        <?php if ( $item['icon'] ): ?>
@@ -29,6 +29,10 @@
 
             </div>
         </div>
+        
+        <?php if ( $item['clear'] ): ?>
+            <div class="clear"></div>
+        <?php endif; ?>
     <?php endforeach; ?>
 </div>
 
