@@ -80,10 +80,11 @@ function custom_customizer_addition( $wp_customize ) {
 		'footer_section',
 		array(
 			'title'    => __( 'Footer', 'learn' ),
-			'priority' => 2,
+			'priority' => 10,
 			'panel'    => 'custom_settings',
 		)
 	);
+	
 
 	// logo01
 	$wp_customize->add_setting(
@@ -128,7 +129,55 @@ function custom_customizer_addition( $wp_customize ) {
 			)
 		)
 	);
-
+	
+	/**
+	 * Sections title
+	 */
+	$wp_customize->add_section(
+		'ourworks_section',
+		array(
+			'title'    => __( 'Sections Title', 'learn' ),
+			'priority' => 2,
+			'panel'    => 'custom_settings',
+		)
+	);
+	//Our Works section
+	$setting = 'ourworks_title';
+	$wp_customize->add_setting(
+		$setting,
+		array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		)
+	);
+	$wp_customize->add_control(
+		$setting,
+		array(
+			'section'  => 'ourworks_section',
+			'label'    => __( 'Our Works Title', 'learn' ),
+			'type'     => 'text',
+		)
+	);
+	//Blog section
+	$setting = 'blog_section_title';
+	$wp_customize->add_setting(
+		$setting,
+		array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		)
+	);
+	$wp_customize->add_control(
+		$setting,
+		array(
+			'section'  => 'ourworks_section',
+			'label'    => __( 'Blog Title', 'learn' ),
+			'type'     => 'text',
+		)
+	);
+	
 	/**
 	 * Copyright
 	 */

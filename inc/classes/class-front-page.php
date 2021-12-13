@@ -81,8 +81,6 @@ class Front_Page extends Template {
 	public function get_section_our_works(){
 		$template = '/template-parts/front-page/our_works.php';
 		
-		$args = array();
-		
 		$post_type_args = array(
 			'post_type'      => 'ourworks',
 			'post_status'    => 'publish',
@@ -91,21 +89,57 @@ class Front_Page extends Template {
 		);
 		
 		$posts = get_posts( $post_type_args );
+		$args = array(
+			'ourworks_title' => get_theme_mod( 'ourworks_title' ) ?? false,
+		);
 		
 		if ( $posts ) {
 			foreach ( $posts as $post ) {
 				$post_id = $post->ID;
 				$post_link = get_post_permalink($post_id);
 				
-				$item = array (
+				$item[] = array (
 					'post_link' => $post_link,
 					'title' => get_the_title( $post_id ),
 					'image'  => get_field( 'image', $post_id ) ?? false,
 					'link'  => get_field( 'link', $post_id ) ?? false,
 				);
-				
-				array_push( $args, $item );
 			}
+			$args['posts'] = $item;
+		}
+		
+		return $this->render( $template, $args );
+	}
+	
+	public function get_section_blog_title(){
+		$template = '/template-parts/front-page/blog.php';
+		
+		$post_type_args = array(
+			'post_type'      => 'post',
+			'category'    => 0,
+			'post_status'    => 'publish',
+			'posts_per_page' => 4,
+			'order'=> 'ASC',
+		);
+		
+		$posts = get_posts( $post_type_args );
+		$args = array(
+			'blog_title' => get_field( 'blog_section_title' ) ?? false,
+		);
+		
+		if ( $posts ) {
+			foreach ( $posts as $post ) {
+				$post_id = $post->ID;
+				$post_link = get_post_permalink($post_id);
+				
+				$item[] = array (
+					'post_link' => $post_link,
+					'title' => get_the_title( $post_id ),
+					//'image'  => get_field( 'image', $post_id ) ?? false,
+					//'link'  => get_field( 'link', $post_id ) ?? false,
+				);
+			}
+			$args['posts'] = $item;
 		}
 		
 		return $this->render( $template, $args );
