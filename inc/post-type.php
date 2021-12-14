@@ -1,7 +1,7 @@
 <?php
 namespace site;
 
-// Post types possibilities
+//Custom post types
 function register_custom_post_types() {
 	$labels1 = array(
 		'name'               => __( 'Возможности', 'learn' ),
@@ -38,13 +38,7 @@ function register_custom_post_types() {
 		'menu_icon'           => 'dashicons-format-image',
 	);
 
-	register_post_type( 'possibilities', $args1 );
-}
-add_action( 'init', 'site\register_custom_post_types' );
-
-// Post types ourworks
-function register_ourworks_post_types() {
-	$labels1 = array(
+	$labels2 = array(
 		'name'               => __( 'Наши работы', 'learn' ),
 		'singular_name'      => __( 'Наши работы', 'learn' ),
 		'all_items'          => __( 'Все', 'learn' ),
@@ -58,9 +52,9 @@ function register_ourworks_post_types() {
 		'not_found'          => __( 'Не найдено', 'learn' ),
 		'not_found_in_trash' => __( 'Не найдено', 'learn' ),
 	);
-	$args1   = array(
+	$args2   = array(
 		'label'               => __( 'Наши работы', 'learn' ),
-		'labels'              => $labels1,
+		'labels'              => $labels2,
 		'description'         => '',
 		'public'              => false,
 		'publicly_queryable'  => true,
@@ -78,14 +72,8 @@ function register_ourworks_post_types() {
 		'supports'            => array( 'title' ),
 		'menu_icon'           => 'dashicons-images-alt2',
 	);
-	
-	register_post_type( 'ourworks', $args1 );
-}
-add_action( 'init', 'site\register_ourworks_post_types' );
 
-// Post types team
-function register_team_post_types() {
-	$labels1 = array(
+	$labels3 = array(
 		'name'               => __( 'Комманда', 'learn' ),
 		'singular_name'      => __( 'Комманда', 'learn' ),
 		'all_items'          => __( 'Все', 'learn' ),
@@ -99,9 +87,9 @@ function register_team_post_types() {
 		'not_found'          => __( 'Не найдено', 'learn' ),
 		'not_found_in_trash' => __( 'Не найдено', 'learn' ),
 	);
-	$args1   = array(
+	$args3   = array(
 		'label'               => __( 'Комманда', 'learn' ),
-		'labels'              => $labels1,
+		'labels'              => $labels3,
 		'description'         => '',
 		'public'              => false,
 		'publicly_queryable'  => true,
@@ -119,13 +107,8 @@ function register_team_post_types() {
 		'supports'            => array( 'title' ),
 		'menu_icon'           => 'dashicons-businessperson',
 	);
-	
-	register_post_type( 'team', $args1 );
-}
-add_action( 'init', 'site\register_team_post_types' );
 
-function register_clients_post_types() {
-	$labels1 = array(
+	$labels4 = array(
 		'name'               => __( 'Клиенты', 'learn' ),
 		'singular_name'      => __( 'Клиенты', 'learn' ),
 		'all_items'          => __( 'Все', 'learn' ),
@@ -139,9 +122,9 @@ function register_clients_post_types() {
 		'not_found'          => __( 'Не найдено', 'learn' ),
 		'not_found_in_trash' => __( 'Не найдено', 'learn' ),
 	);
-	$args1   = array(
+	$args4   = array(
 		'label'               => __( 'Клиенты', 'learn' ),
-		'labels'              => $labels1,
+		'labels'              => $labels4,
 		'description'         => '',
 		'public'              => false,
 		'publicly_queryable'  => true,
@@ -159,7 +142,10 @@ function register_clients_post_types() {
 		'supports'            => array( 'title' ),
 		'menu_icon'           => 'dashicons-universal-access',
 	);
-	
-	register_post_type( 'clients', $args1 );
+
+	register_post_type( 'possibilities', $args1 );
+	register_post_type( 'our_works', $args2 );
+	register_post_type( 'team', $args3 );
+	register_post_type( 'clients', $args4 );
 }
-add_action( 'init', 'site\register_clients_post_types' );
+add_action( 'init', 'site\register_custom_post_types' );

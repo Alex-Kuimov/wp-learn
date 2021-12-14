@@ -134,7 +134,7 @@ function custom_customizer_addition( $wp_customize ) {
 	 * Sections title
 	 */
 	$wp_customize->add_section(
-		'ourworks_section',
+		'our_works_section',
 		array(
 			'title'    => __( 'Sections Title', 'learn' ),
 			'priority' => 2,
@@ -142,7 +142,7 @@ function custom_customizer_addition( $wp_customize ) {
 		)
 	);
 	//Our Works section
-	$setting = 'ourworks_title';
+	$setting = 'our_works_title';
 	$wp_customize->add_setting(
 		$setting,
 		array(
@@ -154,7 +154,7 @@ function custom_customizer_addition( $wp_customize ) {
 	$wp_customize->add_control(
 		$setting,
 		array(
-			'section'  => 'ourworks_section',
+			'section'  => 'our_works_section',
 			'label'    => __( 'Our Works Title', 'learn' ),
 			'type'     => 'text',
 		)
@@ -172,7 +172,7 @@ function custom_customizer_addition( $wp_customize ) {
 	$wp_customize->add_control(
 		$setting,
 		array(
-			'section'  => 'ourworks_section',
+			'section'  => 'our_works_section',
 			'label'    => __( 'Blog Title', 'learn' ),
 			'type'     => 'text',
 		)
@@ -190,7 +190,7 @@ function custom_customizer_addition( $wp_customize ) {
 	$wp_customize->add_control(
 		$setting,
 		array(
-			'section'  => 'ourworks_section',
+			'section'  => 'our_works_section',
 			'label'    => __( 'Team Title', 'learn' ),
 			'type'     => 'text',
 		)

@@ -11,8 +11,8 @@
 	<div class="section topmargin nobottommargin nobottomborder">
 		<div class="container clearfix">
 			<div class="heading-block center nomargin">
-				<?php if ( $args['ourworks_title'] ) : ?>
-					<h3><?php echo esc_html( $args['ourworks_title'] ); ?></h3>
+				<?php if ( $args['our_works_title'] ) : ?>
+					<h3><?php echo esc_html( $args['our_works_title'] ); ?></h3>
 				<?php endif; ?>
 			</div>
 		</div>

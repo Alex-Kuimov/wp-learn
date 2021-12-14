@@ -46,8 +46,6 @@ class Front_Page extends Template {
 	public function get_section_possibilities() {
 		$template = '/template-parts/front-page/possibilities.php';
 
-		$args = array();
-
 		$post_type_args = array(
 			'post_type'      => 'possibilities',
 			'post_status'    => 'publish',
@@ -56,35 +54,22 @@ class Front_Page extends Template {
 
 		$posts = get_posts( $post_type_args );
 
-		if ( $posts ) {
-			$i = 0;
-			foreach ( $posts as $post ) {
-				$post_id = $post->ID;
+		return $this->render( $template, $posts );
+	}
 
-				$item = array(
-					'title'   => get_the_title( $post_id ),
-					'icon'    => get_field( 'possibilities_icon', $post_id ) ?? false,
-					'text'    => get_field( 'possibilities_text', $post_id ) ?? false,
-					'row_end' => ( $i == 2 ) ? 'col_last' : false,
-					'clear'   => ( $i == 2 ) ? true : false,
-				);
+	public function get_end_row( $key ) {
+		return ( $key + 1 ) % 3 === 0 ? true : false;
+	}
 
-				array_push( $args, $item );
-				$i++;
-				if ( $i == 3 ) {
-					$i = 0;
-				}
-			}
-		}
-
-		return $this->render( $template, $args );
+	public function get_start_class( $key ) {
+		return ( $key + 1 ) % 3 === 0 ? 'col_last' : false;
 	}
 
 	public function get_section_our_works() {
-		$template = '/template-parts/front-page/our_works.php';
+		$template = '/template-parts/front-page/our-works.php';
 
 		$post_type_args = array(
-			'post_type'      => 'ourworks',
+			'post_type'      => 'our_works',
 			'post_status'    => 'publish',
 			'posts_per_page' => 8,
 			'order'          => 'ASC',
@@ -92,11 +77,11 @@ class Front_Page extends Template {
 
 		$posts = get_posts( $post_type_args );
 		$args  = array(
-			'ourworks_title' => get_theme_mod( 'ourworks_title' ) ?? false,
+			'our_works_title' => get_theme_mod( 'our_works_title' ) ?? false,
 		);
 
 		if ( $posts ) {
-			//нужно объявить массив!!!
+			// нужно объявить массив!!!
 			$item = array();
 
 			foreach ( $posts as $post ) {
@@ -128,7 +113,8 @@ class Front_Page extends Template {
 		);
 
 		$posts = get_posts( $post_type_args );
-		$args  = array(
+
+		$args = array(
 			'blog_title' => get_theme_mod( 'blog_title' ) ?? false,
 		);
 
