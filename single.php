@@ -10,31 +10,42 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<section id="page-title">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+	<div class="container clearfix">
+		<h1><?php echo esc_html( get_the_title() ); ?></h1>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item"><a href="#">Blog</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Blog Single</li>
+		</ol>
+	</div>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+</section><!-- #page-title end -->
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'learn' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'learn' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-	</main><!-- #main -->
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="postcontent nobottommargin clearfix">
+				<div class="single-post nobottommargin">
+					<div class="entry clearfix">
+						<?php
+						while ( have_posts() ) :
+							the_post();
+							?>
+							<div class="entry-image">
+								<a href="#"><img src="images/about.jpg" alt="Blog Single"></a>
+							</div>
+							<div class="entry-content notopmargin">
+								<?php the_content(); ?>
+							</div>
+						<?php endwhile; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
 <?php
-get_sidebar();
 get_footer();
