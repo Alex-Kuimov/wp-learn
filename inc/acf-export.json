@@ -214,7 +214,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "ourworks"
+                    "value": "our_works"
                 }
             ]
         ],
