@@ -160,7 +160,7 @@ function custom_customizer_addition( $wp_customize ) {
 		)
 	);
 	//Blog section
-	$setting = 'blog_section_title';
+	$setting = 'blog_title';
 	$wp_customize->add_setting(
 		$setting,
 		array(
@@ -174,6 +174,24 @@ function custom_customizer_addition( $wp_customize ) {
 		array(
 			'section'  => 'ourworks_section',
 			'label'    => __( 'Blog Title', 'learn' ),
+			'type'     => 'text',
+		)
+	);
+	//Team section
+	$setting = 'team_title';
+	$wp_customize->add_setting(
+		$setting,
+		array(
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => '',
+		)
+	);
+	$wp_customize->add_control(
+		$setting,
+		array(
+			'section'  => 'ourworks_section',
+			'label'    => __( 'Team Title', 'learn' ),
 			'type'     => 'text',
 		)
 	);
