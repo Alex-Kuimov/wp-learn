@@ -14,32 +14,37 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+            <section id="page-title">
+                <div class="container clearfix">
+                    <?php
+                    echo "<h1>". get_the_archive_title() ."</h1>" ;
+                    the_archive_description( '<span>', '</span>' );
+                    wp_learn_breadcrumbs();
+                    ?>
+                </div>
+            </section>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+            <section id="content">
+                <div class="content-wrap">
+                    <div class="container clearfix">
+                        <div id="posts" class="post-grid grid-container post-masonry grid-3 clearfix">
+                            <?php
+                            /* Start the Loop */
+                            while ( have_posts() ) :
+                                the_post();
+                                get_template_part( 'template-parts/category', get_post_type() );
+                            endwhile;
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
+                            the_posts_navigation();
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <?php
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/category' );
 
 		endif;
 		?>
@@ -47,5 +52,7 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();
+
+

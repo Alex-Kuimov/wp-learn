@@ -50,6 +50,7 @@ class Front_Page extends Template {
 			'post_type'      => 'possibilities',
 			'post_status'    => 'publish',
 			'posts_per_page' => 20,
+            'order'          => 'ASC',
 		);
 
 		$posts = get_posts( $post_type_args );

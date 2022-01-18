@@ -95,6 +95,13 @@ if ( function_exists( 'acf_add_local_field_group' ) ) :
 						'value'    => 'post',
 					),
 				),
+                array(
+                    array(
+                        'param'    => 'post_template',
+                        'operator' => '==',
+                        'value'    => 'template-parts/front-page-template.php',
+                    ),
+                ),
 			),
 			'menu_order'            => 0,
 			'position'              => 'normal',

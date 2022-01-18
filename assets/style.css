@@ -5028,6 +5028,7 @@ body:not(.device-touch) .entry-link {
 .post-grid.grid-3 .entry {
 	width: 33.33333333%;
 	padding-right: 30px;
+	min-height: 666px;
 }
 
 .post-grid.grid-3 .entry-title h2 { font-size: 18px; }
